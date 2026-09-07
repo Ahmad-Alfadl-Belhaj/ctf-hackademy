@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Hackademy — Espace membres</title>
+<link rel="stylesheet" href="styles.css">
+</head>
+<body>
+<div class="auth-wrap">
+  <div class="auth-card">
+    <img src="assets/logo.jpg" class="logo-sm" alt="Hackademy">
+    <h2>Espace membres / Admin</h2>
+    <p class="hint">Connecte-toi pour accéder au panneau d'administration.</p>
+
+    <label for="u">Utilisateur</label>
+    <input type="text" id="u" placeholder="admin" autocomplete="off">
+    <label for="p">Mot de passe</label>
+    <input type="password" id="p" placeholder="••••••••" autocomplete="off"
+           onkeydown="if(event.key==='Enter')tryLogin()">
+    <button class="btn" onclick="tryLogin()">Se connecter</button>
+
+    <div id="msg"></div>
+
+    <div class="hint-strong">💡 Astuce sécurité : parfois les admins sont paresseux… il paraît que le mot de passe est juste <b>password</b>.</div>
+
+    <!-- La note SQLi apparaît ici après une tentative ratée -->
+    <div id="sqli"></div>
+  </div>
+</div>
+
+<script>
+/* ===================================================================
+   Login VOLONTAIREMENT vulnérable (SQL injection) — version statique.
+   La "requête" est simulée : on accepte toute injection de type tautologie
+   ( ' OR '1'='1 ) ou commentaire ( admin' -- ).
+   =================================================================== */
+const tautology = /('|").*\bor\b.*('|"|\d)/i;   // ' OR '1'='1   |   ' or 1=1
+const comment   = /('|").*--/;                   // admin' --
+
+function isInjection(s){ return tautology.test(s) || comment.test(s); }
+
+function tryLogin(){
+  const u = document.getElementById('u').value;
+  const p = document.getElementById('p').value;
+  const msg = document.getElementById('msg');
+
+  if(isInjection(u) || isInjection(p)){
+    msg.className='msg ok';
+    msg.textContent='✅ Injection réussie — connexion en tant que admin...';
+    setTimeout(()=>location.href='admin.html', 800);
+    return;
+  }
+  // Échec : identifiants classiques refusés → on révèle la note pédagogique
+  msg.className='msg err';
+  msg.textContent='❌ Utilisateur ou mot de passe incorrect.';
+  showSqliNote();
+}
+
+function showSqliNote(){
+  document.getElementById('sqli').innerHTML = `
+  <div class="sqli-note">
+    <div class="head">🟥 SQL INJECTION</div>
+    <div class="body">
+      <h5>C'est quoi ?</h5>
+      <p>Une faille où on trompe la base de données en glissant un bout de code
+         dans un champ de texte, au lieu d'un vrai mot de passe.</p>
+      <h5>Analogie 🧠</h5>
+      <p class="analogy">Imagine un videur à l'entrée d'une soirée. Sa règle :
+        « je laisse entrer si le nom est sur la liste ET le mot de passe est bon ».
+        La SQL injection, c'est lui souffler : « mon nom… <b>OU</b> alors laisse entrer tout le monde ».
+        Comme il applique bêtement la règle, il ouvre la porte à tous.</p>
+      <h5>Exemple à essayer ⚙️</h5>
+      <p>Copie ceci dans le champ <b>Utilisateur</b> (mets n'importe quoi dans Mot de passe) :</p>
+      <code class="code-box">' OR '1'='1' -- </code>
+      <p style="color:var(--muted);font-size:.85rem">Le <span class="mono">' OR '1'='1'</span> rend la condition
+        <b>toujours vraie</b>, et le <span class="mono">-- </span> (deux tirets + un espace) dit à la base
+        « ignore tout ce qui suit » → elle ne vérifie même plus le mot de passe.</p>
+    </div>
+  </div>`;
+}
+</script>
+</body>
+</html>

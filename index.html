@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Hackademy — Accès restreint</title>
+<link rel="stylesheet" href="styles.css">
+</head>
+<body>
+<div class="auth-wrap">
+  <div class="auth-card">
+    <img src="assets/logo.jpg" class="logo-sm" alt="Hackademy">
+    <h2>Portail Hackademy</h2>
+    <p class="hint">Accès réservé — entre le <b>code d'accès</b> obtenu à l'épreuve du club dev.</p>
+
+    <label for="code">Code d'accès</label>
+    <input type="text" id="code" placeholder="Tape ton code ici..." autocomplete="off"
+           onkeydown="if(event.key==='Enter')checkCode()">
+    <button class="btn" onclick="checkCode()">🔓 Entrer</button>
+
+    <div id="msg"></div>
+
+    <div class="hint-strong">💡 Tu obtiens ce code en terminant le quiz du club dev, puis en rangeant les réponses dans le bon ordre.</div>
+  </div>
+</div>
+
+<script>
+/* ===================================================================
+   ⚙️  CONFIG — À MODIFIER : le code d'accès produit par le quiz du club dev.
+   Mets ici la valeur exacte que le site du club dev donnera aux participants.
+   =================================================================== */
+const CODE_ACCES = "HACKADEMY2026";   // <-- change-moi
+
+function checkCode(){
+  const val = document.getElementById('code').value.trim().toUpperCase();
+  const msg = document.getElementById('msg');
+  if(val === CODE_ACCES.toUpperCase()){
+    msg.className='msg ok'; msg.textContent='✅ Code valide — accès autorisé...';
+    setTimeout(()=>location.href='site.html', 700);
+  } else if(val === ""){
+    msg.className='msg err'; msg.textContent='Entre le code d’abord.';
+  } else {
+    msg.className='msg err'; msg.textContent='❌ Code invalide. Retourne voir l’équipe dev 😉';
+  }
+}
+/* Le code d'accès arrive aussi via l'URL ?code=... (option lien du club dev) */
+const p = new URLSearchParams(location.search).get('code');
+if(p){ document.getElementById('code').value = p; checkCode(); }
+</script>
+</body>
+</html>

@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Hackademy — Coffre secret</title>
+<link rel="stylesheet" href="../styles.css">
+<style>
+  .final .big{font-size:2.5rem}
+  .reveal-img{max-width:520px;width:100%;border-radius:18px;border:2px solid var(--violet);
+    box-shadow:0 0 60px rgba(139,92,246,.5);margin:22px auto 0;display:block;
+    animation:imgpop .7s cubic-bezier(.2,.7,.2,1) both}
+  @keyframes imgpop{from{opacity:0;transform:scale(.9)}to{opacity:1;transform:scale(1)}}
+  .done-title{font-size:2rem;font-weight:900;color:var(--green);margin:6px 0}
+  .found-flag{font-family:var(--mono);color:var(--green);font-size:1.4rem;font-weight:800}
+  .station{margin-top:20px;padding:16px 20px;border-radius:14px;font-size:1.15rem;
+    background:linear-gradient(135deg,rgba(139,92,246,.16),rgba(61,220,151,.06));
+    border:2px solid var(--violet);animation:hintPulse 2.4s ease-in-out infinite}
+  .station b{color:var(--violet)}
+</style>
+</head>
+<body>
+<div class="final">
+  <div class="final-card">
+    <img src="../assets/logo.jpg" alt="Hackademy" style="width:96px;height:96px;border-radius:22px;object-fit:cover;box-shadow:0 0 40px rgba(139,92,246,.5);margin-bottom:18px">
+
+    <!-- ÉTAT 1 : le twist + saisie -->
+    <div id="step">
+      <div class="big">YOU WERE CAPTURING<br>THE FLAG ALL THE TIME !</div>
+      <p style="color:var(--text);max-width:560px;margin:20px auto 0;font-size:1.15rem">
+        « Capture The Flag », c'est exactement ça : ramener un drapeau au format
+        <span class="mono" style="color:var(--violet)">HKM{...}</span>.
+        Et tu le tiens <b>depuis le tout début</b> de l'aventure — regarde bien ton <b>indice de départ</b> 👀
+      </p>
+
+      <div class="flag-input" style="font-size:1.7rem">
+        <span class="brace">HKM{</span>
+        <input type="text" id="flag" placeholder="Image?" autocomplete="off"
+               onkeydown="if(event.key==='Enter')validate()">
+        <span class="brace">}</span>
+      </div>
+      <button class="btn" onclick="validate()">🏴 Capturer le flag</button>
+      <div id="msg" style="max-width:440px;margin:18px auto 0"></div>
+    </div>
+
+    <!-- ÉTAT 2 : succès + image de la prochaine station -->
+    <div id="win" hidden>
+      <div class="done-title">✅ CHALLENGE TERMINÉ !</div>
+      <p style="font-size:1.15rem;margin:4px 0">Tu as trouvé le dernier flag :
+        <span class="found-flag" id="wonflag"></span></p>
+      <img id="stationImg" class="reveal-img" src="" alt="Prochaine station">
+      <div class="station">🧭 Retiens bien cette image : elle t'attend à ta <b>PROCHAINE STATION</b>
+        de la chasse au trésor. Fonce la retrouver ! 🏃‍♂️💨</div>
+    </div>
+
+  </div>
+</div>
+
+<script>
+/* ===================================================================
+   Etape finale. Le participant retape le numero de son indice de depart
+   (ex "Image3"). On valide HKM{Image<1-5>}, puis on AFFICHE l'image
+   correspondante = l'indice de sa PROCHAINE STATION de la chasse au tresor.
+
+   ⚙️  Mapping numero -> image (change les fichiers plus tard) :
+   =================================================================== */
+const IMAGES = {
+  1: "../assets/image1.jpg",
+  2: "../assets/image2.jpg",
+  3: "../assets/image3.jpg",
+  4: "../assets/image4.jpg",
+  5: "../assets/image5.jpg",
+};
+
+function validate(){
+  const raw = document.getElementById('flag').value.trim();
+  const msg = document.getElementById('msg');
+  const m = raw.match(/^image\s*([1-5])$/i);
+  if(!m){
+    if(raw===''){ msg.className='msg err'; msg.textContent='Écris ton indice de départ (ex : Image3).'; }
+    else { msg.className='msg err'; msg.textContent='❌ Ce n’est pas ça. Regarde bien ton indice de départ : il donne un numéro d’image.'; }
+    return;
+  }
+  const n = m[1];
+  // succès : on bascule sur l'écran de victoire + image de la prochaine station
+  document.getElementById('wonflag').textContent = 'HKM{Image' + n + '}';
+  document.getElementById('stationImg').src = IMAGES[n];
+  document.getElementById('step').hidden = true;
+  document.getElementById('win').hidden = false;
+}
+</script>
+</body>
+</html>

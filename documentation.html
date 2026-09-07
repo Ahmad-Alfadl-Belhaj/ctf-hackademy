@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Hackademy — Documentation</title>
+<link rel="stylesheet" href="styles.css">
+</head>
+
+<!--
+  ┌─────────────────────────────────────────────────────────────┐
+  │  Bien joué, recrue. Tu sais fouiller derrière le rideau.     │
+  │                                                             │
+  │  FLAG :  HKM{V13W_S0URC3_D3T3CT1V3}                          │
+  │                                                             │
+  │  PROCHAINE ETAPE : va sur la page  robots.txt               │
+  │  Dans la barre d'adresse (tout en haut du navigateur),      │
+  │  remplace  documentation.html  par  robots.txt              │
+  │  puis appuie sur Entree.                                     │
+  │                                                             │
+  │  Exemple :  http://.../documentation.html                   │
+  │      devient  http://.../robots.txt                         │
+  └─────────────────────────────────────────────────────────────┘
+-->
+
+<body>
+<nav class="nav"><div class="container">
+  <a class="brand" href="admin.html"><img src="assets/logo.jpg" alt=""><span>HACK</span><b>ADEMY</b></a>
+  <div class="nav-links"><a href="admin.html">← Retour admin</a></div>
+</div></nav>
+
+<div class="doc">
+  <h1>📄 Documentation — regarder derrière le rideau</h1>
+  <p style="color:var(--muted)">Cette page contient un secret… mais il n'est <b>pas visible à l'écran</b>. Suis le guide.</p>
+
+  <div class="callout">
+    <h4>F12 / Inspecter — c'est quoi ?</h4>
+    <p>Chaque page web est écrite en <b>HTML</b>. Ton navigateur te montre le <i>résultat</i>,
+       mais tu peux voir les <b>coulisses</b> : le code qui a servi à la construire.</p>
+    <p class="analogy">🧠 Analogie : une page web, c'est un tour de magie. Ce que tu vois, c'est l'illusion.
+       Appuyer sur <b>F12</b> (ou <b>clic droit → Afficher le code source</b>), c'est passer <b>derrière la scène</b>
+       pour voir comment le tour est fait. Et les développeurs y laissent parfois traîner des <b>notes oubliées</b>.</p>
+  </div>
+
+  <h3>À faire maintenant ⚙️</h3>
+  <ol class="steps">
+    <li>Appuie sur <b>F12</b> — ou <b>clic droit</b> n'importe où sur la page → <b>« Afficher le code source de la page »</b> (ou <b>Inspecter</b>).</li>
+    <li>Cherche une ligne qui commence par <span class="mono">&lt;!--</span> tout en haut du code : c'est un <b>commentaire</b>, invisible sur la page.</li>
+    <li>Tu y trouveras un <b>flag</b> <span class="mono">HKM{...}</span> et la <b>prochaine consigne</b>.</li>
+  </ol>
+
+  <div class="callout" style="border-left-color:var(--green)">
+    <h4>Astuce 📱 sur téléphone</h4>
+    <p>Pas de touche F12 ? Ajoute <span class="mono">view-source:</span> devant l'adresse de la page dans la barre d'adresse,
+       par exemple <span class="mono">view-source:…/documentation.html</span>, puis valide. Le code source s'affiche.</p>
+  </div>
+
+  <p style="color:var(--muted);margin-top:26px">👀 Le <b>flag</b> <span class="mono">HKM{...}</span> <b>ET</b> la consigne pour la suite sont cachés dans le <b>code source</b> de cette page — invisibles ici. À toi de jouer : ouvre le rideau avec <b>F12</b> (ou <b>clic droit → Afficher le code source</b>).</p>
+</div>
+<script src="anim.js"></script>
+</body>
+</html>

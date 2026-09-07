@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Hackademy — Panneau Admin</title>
+<link rel="stylesheet" href="styles.css">
+</head>
+<body>
+<div class="admin">
+
+  <!-- ===== SIDEBAR ===== -->
+  <aside class="sidebar">
+    <a class="brand" href="admin.html"><img src="assets/logo.jpg" alt="" style="height:30px;width:30px;border-radius:7px"><span>HACK</span><b>ADEMY</b></a>
+    <a class="active" href="admin.html">📊 Tableau de bord</a>
+    <a href="site.html#membres">👥 Membres</a>
+    <a href="site.html#cellules">🧩 Cellules</a>
+    <a href="parametres.html">⚙️ Paramètres</a>
+    <a href="documentation.html">📄 Documentation</a>
+  </aside>
+
+  <!-- ===== MAIN ===== -->
+  <main class="main">
+    <div class="topbar">
+      <h1 style="margin:0">Tableau de bord</h1>
+      <div class="who">Connecté : <b>admin</b> · rôle super-admin 🔓</div>
+    </div>
+
+    <!-- Flag étape 1 -->
+    <div class="flag-banner">
+      🎉 Bienvenue, admin Hackademy. Tu as contourné le login par injection SQL.<br>
+      Ton 1<sup>er</sup> flag : <span class="flag">HKM{SQL_1NJ3CT10N_R3USS13}</span>
+    </div>
+
+    <!-- Stats -->
+    <div class="stats">
+      <div class="stat"><div class="n">209</div><div class="l">Abonnés</div></div>
+      <div class="stat"><div class="n">5</div><div class="l">Cellules</div></div>
+      <div class="stat"><div class="n">12</div><div class="l">Activités prévues</div></div>
+      <div class="stat"><div class="n">3</div><div class="l">Alertes système</div></div>
+    </div>
+
+    <!-- Table membres (décor) -->
+    <h3 style="margin:6px 0 12px">Comptes membres</h3>
+    <table>
+      <thead><tr><th>Utilisateur</th><th>Email</th><th>Cellule</th><th>Rôle</th></tr></thead>
+      <tbody>
+        <tr><td>admin</td><td>hackademy.cybsecensaj@gmail.com</td><td>—</td><td><span class="badge b-admin">super-admin</span></td></tr>
+        <tr><td>a.belhaj</td><td>a.belhaj@ensaj.ma</td><td>Bureau</td><td><span class="badge b-member">président</span></td></tr>
+        <tr><td>n.najeddine</td><td>n.najeddine@ensaj.ma</td><td>Technique</td><td><span class="badge b-member">membre</span></td></tr>
+        <tr><td>h.chahi</td><td>h.chahi@ensaj.ma</td><td>Média</td><td><span class="badge b-member">membre</span></td></tr>
+        <tr><td>s.niaama</td><td>s.niaama@ensaj.ma</td><td>Projets</td><td><span class="badge b-member">membre</span></td></tr>
+        <tr><td>guest</td><td>guest@ensaj.ma</td><td>—</td><td><span class="badge b-member">invité</span></td></tr>
+      </tbody>
+    </table>
+
+    <!-- Logs (décor) -->
+    <h3 style="margin:26px 0 12px">Journal système</h3>
+    <div class="card mono" style="font-size:.85rem;color:var(--muted)">
+      [08:42:11] auth: login success (admin) via ***injection***<br>
+      [08:41:03] http: GET /admin 200<br>
+      [08:39:55] warn: /parametres accès non autorisé<br>
+      [08:38:20] info: sauvegarde base terminée<br>
+      [08:35:02] note: <span style="color:var(--violet)">certaines pages restent visibles dans le code source…</span>
+    </div>
+
+    <!-- Piste vers l'étape suivante -->
+    <div class="card hint-cta" style="margin-top:26px">
+      <h3>🔎 Continuer l'infiltration <span class="arrow">→</span></h3>
+      <p style="color:var(--text)">Toute la vérité d'une page web n'est pas toujours visible à l'écran…
+      Les vrais hackers regardent <b>derrière le rideau</b>. Ouvre notre
+      <a href="documentation.html"><b>page Documentation</b></a> et inspecte son code pour trouver la suite.</p>
+    </div>
+  </main>
+</div>
+</body>
+</html>

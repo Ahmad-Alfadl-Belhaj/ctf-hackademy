@@ -1,0 +1,32 @@
+# =====================================================================
+#  robots.txt  —  Hackademy
+# =====================================================================
+#
+#  C'EST QUOI robots.txt ?
+#  Un petit fichier public qui DEMANDE POLIMENT aux robots des moteurs
+#  de recherche (Google...) de NE PAS visiter certaines pages.
+#
+#  Analogie : c'est comme un panneau a l'entree d'un hotel qui dit
+#  "Personnel : priere de NE PAS entrer dans les chambres 12, 15 et 20".
+#  Le probleme ? N'importe qui peut lire le panneau... et donc savoir
+#  exactement quelles chambres cachent quelque chose d'interessant.
+#  robots.txt revele souvent les pages qu'on voulait cacher.
+#
+#  A FAIRE : repere la ligne "Disallow" la plus intrigante ci-dessous,
+#  et va voir cette page dans ton navigateur.
+# =====================================================================
+
+User-agent: *
+Disallow: /admin.html
+Disallow: /parametres.html
+Disallow: /logs/
+Disallow: /galerie-s3cr3t3/      # <-- tiens, ce dossier a l'air interessant... va y jeter un oeil
+
+# Flag de cette etape : HKM{R0B0TS_TXT_R3V3L4T10N}
+#
+# ETAPE SUIVANTE  -->  COMME POUR robots.txt : ajoute le repertoire  /galerie-s3cr3t3/  a l'adresse du site.
+# Dans ta barre d'adresse (la ligne tout en haut du navigateur), remplace  robots.txt  par  galerie-s3cr3t3/
+# puis appuie sur Entree.
+#
+# Exemple : si tu vois en haut   http://mon-site/robots.txt
+#           tape a la place       http://mon-site/galerie-s3cr3t3/
