@@ -3,6 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="robots" content="noindex, nofollow">
 <title>Hackademy — Panneau Admin</title>
 <link rel="stylesheet" href="styles.css">
 </head>
@@ -11,24 +12,24 @@
 
   <!-- ===== SIDEBAR ===== -->
   <aside class="sidebar">
-    <a class="brand" href="admin.html"><img src="assets/logo.jpg" alt="" style="height:30px;width:30px;border-radius:7px"><span>HACK</span><b>ADEMY</b></a>
-    <a class="active" href="admin.html">📊 Tableau de bord</a>
-    <a href="site.html#membres">👥 Membres</a>
-    <a href="site.html#cellules">🧩 Cellules</a>
-    <a href="parametres.html">⚙️ Paramètres</a>
-    <a href="documentation.html">📄 Documentation</a>
+    <a class="brand" href="admin.html"><img src="logo.jpg" alt="" style="height:30px;width:30px;border-radius:7px"><span>HACK</span><b>ADEMY</b></a>
+    <a class="active" href="admin.html"><svg class="ic" viewBox="0 0 24 24"><path d="M4 20V10M10 20V4M16 20v-7M22 20H2"/></svg> Tableau de bord</a>
+    <a href="site.html#membres"><svg class="ic" viewBox="0 0 24 24"><circle cx="9" cy="8" r="3"/><path d="M3.5 20c0-3 2.7-5 5.5-5s5.5 2 5.5 5"/><path d="M16 5.5a3 3 0 010 5.8M21 20c0-2.2-1.3-4-3.2-4.7"/></svg> Membres</a>
+    <a href="site.html#cellules"><svg class="ic" viewBox="0 0 24 24"><rect x="3" y="3" width="7" height="7"/><rect x="14" y="3" width="7" height="7"/><rect x="3" y="14" width="7" height="7"/><rect x="14" y="14" width="7" height="7"/></svg> Cellules</a>
+    <a href="parametres.html"><svg class="ic" viewBox="0 0 24 24"><circle cx="12" cy="12" r="3"/><path d="M12 2v3M12 19v3M4.9 4.9l2.1 2.1M17 17l2.1 2.1M2 12h3M19 12h3M4.9 19.1l2.1-2.1M17 7l2.1-2.1"/></svg> Paramètres</a>
+    <a href="documentation.html"><svg class="ic" viewBox="0 0 24 24"><path d="M6 3h8l4 4v14H6z"/><path d="M14 3v4h4M9 12h6M9 16h6"/></svg> Documentation</a>
   </aside>
 
   <!-- ===== MAIN ===== -->
   <main class="main">
     <div class="topbar">
       <h1 style="margin:0">Tableau de bord</h1>
-      <div class="who">Connecté : <b>admin</b> · rôle super-admin 🔓</div>
+      <div class="who">Connecté : <b>admin</b> · rôle super-admin</div>
     </div>
 
     <!-- Flag étape 1 -->
     <div class="flag-banner">
-      🎉 Bienvenue, admin Hackademy. Tu as contourné le login par injection SQL.<br>
+      Bienvenue, admin Hackademy. Tu as contourné le login par injection SQL.<br>
       Ton 1<sup>er</sup> flag : <span class="flag">HKM{SQL_1NJ3CT10N_R3USS13}</span>
     </div>
 

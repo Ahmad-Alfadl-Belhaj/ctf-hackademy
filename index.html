@@ -3,24 +3,25 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="robots" content="noindex, nofollow">
 <title>Hackademy — Accès restreint</title>
 <link rel="stylesheet" href="styles.css">
 </head>
 <body>
 <div class="auth-wrap">
   <div class="auth-card">
-    <img src="assets/logo.jpg" class="logo-sm" alt="Hackademy">
-    <h2>Portail Hackademy</h2>
-    <p class="hint">Accès réservé — entre le <b>code d'accès</b> obtenu à l'épreuve du club dev.</p>
+    <img src="logo.jpg" class="logo-sm" alt="Hackademy">
+    <h2>Bienvenue dans l'univers HACKADEMY</h2>
+    <p class="hint">Tu es à l'entrée du terrain d'entraînement du club de cybersécurité de l'ENSAJ.
+      Derrière cette porte : un système à explorer, des failles à trouver, un drapeau à capturer.
+      Entre le <b>code d'accès</b> obtenu à l'épreuve du club dev — et l'aventure commence.</p>
 
     <label for="code">Code d'accès</label>
     <input type="text" id="code" placeholder="Tape ton code ici..." autocomplete="off"
            onkeydown="if(event.key==='Enter')checkCode()">
-    <button class="btn" onclick="checkCode()">🔓 Entrer</button>
+    <button class="btn" onclick="checkCode()"><svg class="ic" viewBox="0 0 24 24"><rect x="5" y="10.5" width="14" height="9.5" rx="1.5"/><path d="M8 10.5V7a4 4 0 018 0v3.5"/></svg> Entrer</button>
 
     <div id="msg"></div>
-
-    <div class="hint-strong">💡 Tu obtiens ce code en terminant le quiz du club dev, puis en rangeant les réponses dans le bon ordre.</div>
   </div>
 </div>
 

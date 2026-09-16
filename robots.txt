@@ -20,13 +20,13 @@ User-agent: *
 Disallow: /admin.html
 Disallow: /parametres.html
 Disallow: /logs/
-Disallow: /galerie-s3cr3t3/      # <-- tiens, ce dossier a l'air interessant... va y jeter un oeil
+Disallow: /galerie-s3cr3t3.html   # <-- tiens, cette page a l'air interessante... va y jeter un oeil
 
 # Flag de cette etape : HKM{R0B0TS_TXT_R3V3L4T10N}
 #
-# ETAPE SUIVANTE  -->  COMME POUR robots.txt : ajoute le repertoire  /galerie-s3cr3t3/  a l'adresse du site.
-# Dans ta barre d'adresse (la ligne tout en haut du navigateur), remplace  robots.txt  par  galerie-s3cr3t3/
+# ETAPE SUIVANTE  -->  COMME POUR robots.txt : ajoute le repertoire  /galerie-s3cr3t3.html  a l'adresse du site.
+# Dans ta barre d'adresse (la ligne tout en haut du navigateur), remplace  robots.txt  par  galerie-s3cr3t3.html
 # puis appuie sur Entree.
 #
 # Exemple : si tu vois en haut   http://mon-site/robots.txt
-#           tape a la place       http://mon-site/galerie-s3cr3t3/
+#           tape a la place       http://mon-site/galerie-s3cr3t3.html

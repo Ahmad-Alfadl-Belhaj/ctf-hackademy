@@ -364,3 +364,20 @@ body::before{content:"";position:fixed;inset:-25%;z-index:-1;pointer-events:none
 .mini-member{text-decoration:none}
 .mini-member:hover{text-decoration:none}
 .mini-member .mm-name{color:var(--text)}
+
+/* =====================================================================
+   v5 — icones dessinees (SVG au trait) a la place des emojis decoratifs
+   ===================================================================== */
+.ic{width:1em;height:1em;display:inline-block;vertical-align:-.14em;fill:none;
+  stroke:currentColor;stroke-width:1.9;stroke-linecap:round;stroke-linejoin:round}
+.cell-ico{color:var(--violet)}
+.v-chip .ico{color:var(--violet);display:inline-flex;align-items:center}
+.act .a-ico{color:var(--violet);display:inline-flex;align-items:center}
+.tagline-ico .ti{display:inline-flex;align-items:center}
+.tagline-ico .ti .ic{width:.95em;height:.95em}
+.btn .ic{width:1.05em;height:1.05em}
+.nav-links .ic{width:1.05em;height:1.05em;vertical-align:-.2em;margin-right:2px}
+.bureau-head .ic{width:1.2em;height:1.2em;color:var(--violet);vertical-align:-.22em;margin-right:4px}
+.sidebar a .ic{width:1.15em;height:1.15em;margin-right:2px}
+.footer .ic{color:var(--violet);vertical-align:-.2em;margin-right:4px}
+.ban-ico{color:var(--danger);width:2.2em;height:2.2em;display:inline-block;margin-bottom:8px}
